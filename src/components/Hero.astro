@@ -1,0 +1,144 @@
+---
+const reserveUrl = "https://tus-reservas.com"; // cámbialo por la URL real
+const heroImage = "/images/background-home.webp"; // pon esta imagen en /public/images
+const logoIcon = "/images/logo-light.svg"; // o el icono que quieras
+---
+
+<section id="inicio" class="relative min-h-screen text-white">
+  <!-- BG full-screen -->
+  <div class="absolute inset-0">
+    <img
+      src={heroImage}
+      alt="Equipo de barberos frente al local."
+      loading="eager"
+      width="1920"
+      height="1080"
+      class="h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/45"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="relative z-30 px-6 py-6 lg:py-12">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <!-- INICIO (solo desktop) -->
+      <a
+        href="#inicio"
+        class="hidden sm:inline-block text-xs sm:text-lg uppercase text-white font-oswald font-medium"
+      >
+        • INICIO
+      </a>
+
+      <!-- LOGO CENTRO -->
+      <div
+        class="absolute left-1/2 top-6 -translate-x-1/2 flex items-center justify-center"
+      >
+        <div
+          class="h-[4.579rem] w-[4.579rem] rounded-full backdrop-blur-sm flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105"
+        >
+          <span class="sr-only">Buenabarba</span>
+          <img src={logoIcon} alt="Logo Buenabarba" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- MENÚ (siempre visible, mobile y desktop) -->
+      <a href="#menu" class="text-xs sm:text-lg uppercase text-white font-oswald font-medium">
+        • MENU
+      </a>
+    </div>
+
+    <!-- BLOQUE RESERVAR (fijo a la derecha) -->
+    <a
+      href={reserveUrl}
+      rel="noopener noreferrer"
+      target="_blank"
+      class="fixed top-0 right-0 z-50 flex h-24 w-40 items-center justify-center bg-[#9c8157] text-xl font-medium tracking-wide uppercase text-white font-oswald"
+    >
+      RESERVAR
+    </a>
+  </header>
+
+  <!-- Solo para ocupar el alto y mantener 100vh con la imagen -->
+  <div class="relative z-10 h-[calc(100vh-96px)]"></div>
+
+  <!-- OVERLAY MENÚ -->
+  <section
+    id="menu"
+    class="fixed inset-0 z-40 flex items-center justify-center bg-black/85 text-white opacity-0 pointer-events-none transition-opacity duration-300"
+  >
+    <!-- Fondo con la misma imagen, muy oscura -->
+    <div class="absolute inset-0 -z-10">
+      <img
+        src={heroImage}
+        alt=""
+        loading="lazy"
+        class="h-full w-full object-cover opacity-20"
+      />
+    </div>
+
+    <!-- Navbar dentro del overlay -->
+    <header class="absolute top-0 left-0 right-0 px-6 py-6">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <!-- INICIO (solo desktop) -->
+        <a
+          href="#inicio"
+          class="hidden sm:inline-block text-xs sm:text-lg uppercase text-white font-oswald font-medium"
+        >
+          • INICIO
+        </a>
+
+        <div
+          class="absolute left-1/2 top-6 -translate-x-1/2 flex items-center justify-center"
+        >
+          <div
+            class="h-14 w-14 rounded-full backdrop-blur-sm flex items-center justify-center"
+          >
+            <span class="sr-only">Buenabarba</span>
+            <img src={logoIcon} alt="Logo Buenabarba" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- CERRAR MENÚ (siempre visible) -->
+        <a href="#inicio" class="text-xs sm:text-lg uppercase text-white">
+          • CERRAR MENU
+        </a>
+      </div>
+    </header>
+
+    <!-- Links del menú central -->
+    <nav class="text-center space-y-5">
+      <a
+        href="#inicio"
+        class="block text-xl sm:text-2xl font-semibold tracking-wide"
+      >
+        INICIO
+      </a>
+      <a
+        href="#sobre-nosotros"
+        class="block text-xl sm:text-2xl font-semibold tracking-wide"
+      >
+        SOBRE NOSOTROS
+      </a>
+      <a
+        href="#servicios"
+        class="block text-xl sm:text-2xl font-semibold tracking-wide"
+      >
+        SERVICIOS
+      </a>
+      <a
+        href="#galeria"
+        class="block text-xl sm:text-2xl font-semibold tracking-wide"
+      >
+        GALERÍA
+      </a>
+    </nav>
+  </section>
+
+  <!-- CSS solo para el overlay -->
+  <style is:global>
+    #menu:target {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</section>
