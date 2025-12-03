@@ -1,0 +1,224 @@
+---
+import { RESERVE_URL } from "@utils/const";
+
+// Data del carrusel: cada item con title + image
+const slides = [
+  [
+    {
+      title: "CORTE DE CABELLO",
+      image: "/images/carousel/corte-cabello.webp",
+    },
+    {
+      title: "SERVICIO PERMANENTE",
+      image: "/images/carousel/servicio-permanente.webp",
+    },
+    {
+      title: "CORTE DE CABELLO Y RITUAL DE BARBA",
+      image: "/images/carousel/corte-barba.webp",
+    },
+  ],
+  [
+    {
+      title: "TRATAMIENTO FACIAL",
+      image: "/images/carousel/image-carousel.webp",
+    },
+    {
+      title: "LIMPIEZA FACIAL",
+      image: "/images/carousel/limpieza-facial.webp",
+    },
+    {
+      title: "BARBA VIP",
+      image: "/images/carousel/ritual-barba.webp",
+    },
+  ],
+];
+
+// Versión “flat” para mobile (1 por slide)
+const items = slides.flat();
+---
+
+<section
+  id="servicios"
+  class="bg-black text-white py-12 sm:py-16 md:py-20 border-t border-white/10"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <header class="mb-8 sm:mb-10">
+      <p class="text-3xl tracking-[0.3em] uppercase text-white font-oswald">
+        SERVICIOS
+      </p>
+    </header>
+
+    <!-- MOBILE: 1 card por slide -->
+    <div data-carousel="services-mobile" class="md:hidden">
+      <div class="relative min-h-[260px]">
+        {
+          items.map((item, index) => (
+            <div
+              data-slide-index={index}
+              class={`absolute inset-0 transition-opacity duration-500 ${
+                index === 0 ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
+            >
+              <a
+                href={RESERVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block"
+              >
+                <article class="relative overflow-hidden group h-[260px]">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    class="h-full w-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500 ease-out"
+                  />
+                  <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
+                  <div class="absolute inset-0 flex items-center justify-center px-4 text-center">
+                    <h3 class="font-oswald font-bold text-lg tracking-[0.25em] uppercase">
+                      {item.title}
+                    </h3>
+                  </div>
+                </article>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Controles mobile (debajo de la imagen) -->
+      <div
+        class="mt-6 flex flex-col gap-3 items-stretch text-[11px] tracking-[0.3em] uppercase"
+      >
+        <button
+          type="button"
+          data-dir="prev"
+          class="inline-flex items-center justify-center gap-3 text-white hover:text-black bg-white/10 hover:bg-white transition-colors px-4 py-3 rounded-full border border-white/60"
+        >
+          <span
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-black/80 border border-white/60"
+          >
+            <span class="text-base leading-none">•</span>
+          </span>
+          <span>Anterior</span>
+        </button>
+
+        <button
+          type="button"
+          data-dir="next"
+          class="inline-flex items-center justify-center gap-3 text-white hover:text-black bg-white/10 hover:bg-white transition-colors px-4 py-3 rounded-full border border-white/60"
+        >
+          <span>Siguiente</span>
+          <span
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-black/80 border border-white/60"
+          >
+            <span class="text-base leading-none">•</span>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- DESKTOP: 3 cards por slide -->
+    <div data-carousel="services-desktop" class="hidden md:block">
+      <div class="relative min-h-[320px] md:min-h-[360px]">
+        {
+          slides.map((group, index) => (
+            <div
+              data-slide-index={index}
+              class={`absolute inset-0 grid gap-5 md:gap-6 grid-cols-3 transition-opacity duration-500 ${
+                index === 0 ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
+            >
+              {group.map((item) => (
+                <a
+                  href={RESERVE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block"
+                >
+                  <article class="relative overflow-hidden group h-[320px] md:h-[360px]">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading="lazy"
+                      class="h-full w-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500 ease-out"
+                    />
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
+                    <div class="absolute inset-0 flex items-center justify-center px-4 text-center">
+                      <h3 class="font-oswald font-bold text-xl md:text-2xl tracking-[0.25em] uppercase">
+                        {item.title}
+                      </h3>
+                    </div>
+                  </article>
+                </a>
+              ))}
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Controles desktop -->
+      <div
+        class="mt-8 flex items-center justify-between text-[11px] sm:text-xs md:text-sm tracking-[0.3em] uppercase"
+      >
+        <button
+          type="button"
+          data-dir="prev"
+          class="inline-flex items-center gap-3 text-white hover:text-black bg-white/5 hover:bg-white transition-colors px-4 py-2 rounded-full border border-white/40"
+        >
+          <span
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-black/80 border border-white/40"
+          >
+            <span class="text-base leading-none">•</span>
+          </span>
+          <span>Anterior</span>
+        </button>
+
+        <button
+          type="button"
+          data-dir="next"
+          class="inline-flex items-center gap-3 text-white hover:text-black bg-white/5 hover:bg-white transition-colors px-4 py-2 rounded-full border border-white/40"
+        >
+          <span>Siguiente</span>
+          <span
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-black/80 border border-white/40"
+          >
+            <span class="text-base leading-none">•</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS mínimo para ambos carousels -->
+  <script is:inline>
+    const carousels = document.querySelectorAll("[data-carousel]");
+    carousels.forEach((root) => {
+      const slides = Array.from(root.querySelectorAll("[data-slide-index]"));
+      if (!slides.length) return;
+
+      let current = 0;
+
+      const showSlide = (nextIndex) => {
+        const total = slides.length;
+        if (nextIndex < 0) nextIndex = total - 1;
+        if (nextIndex >= total) nextIndex = 0;
+
+        slides[current].classList.add("opacity-0", "pointer-events-none");
+        slides[current].classList.remove("opacity-100");
+
+        slides[nextIndex].classList.remove("opacity-0", "pointer-events-none");
+        slides[nextIndex].classList.add("opacity-100");
+
+        current = nextIndex;
+      };
+
+      root.addEventListener("click", (event) => {
+        const btn = event.target.closest("[data-dir]");
+        if (!btn) return;
+        const dir = btn.dataset.dir;
+        if (dir === "next") showSlide(current + 1);
+        if (dir === "prev") showSlide(current - 1);
+      });
+    });
+  </script>
+</section>
