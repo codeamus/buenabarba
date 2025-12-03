@@ -1,5 +1,5 @@
 ---
-const reserveUrl = "https://buenabarba.site.agendapro.com/cl/sucursal/77197"; // cámbialo por la URL real
+import { RESERVE_URL } from "@utils/const";
 const heroImage = "/images/background-home.webp"; // pon esta imagen en /public/images
 const logoIcon = "/images/logo-light.svg"; // o el icono que quieras
 ---
@@ -52,7 +52,7 @@ const logoIcon = "/images/logo-light.svg"; // o el icono que quieras
 
     <!-- BLOQUE RESERVAR (fijo a la derecha) -->
     <a
-      href={reserveUrl}
+      href={RESERVE_URL}
       rel="noopener noreferrer"
       target="_blank"
       class="fixed top-0 right-0 z-50 flex h-24 w-40 items-center justify-center bg-[#9c8157] text-xl font-medium tracking-wide uppercase text-white font-oswald"
