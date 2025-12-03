@@ -1,0 +1,1 @@
+export const RESERVE_URL = "https://buenabarba.site.agendapro.com/cl/sucursal/77197";
