@@ -1,5 +1,6 @@
 ---
 import "@styles/global.css";
+import { ClientRouter, fade } from "astro:transitions";
 
 export interface Props {
   title?: string;
@@ -15,7 +16,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" transition:name="root" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -32,9 +33,10 @@ const {
     <meta property="og:url" content={canonical} />
 
     <meta name="generator" content={Astro.generator} />
+    <ClientRouter />
   </head>
   <body class="bg-black text-white antialiased">
-    <main>
+    <main transition:animate={fade({ duration: "0.8s" })}>
       <slot />
     </main>
   </body>
