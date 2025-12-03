@@ -119,7 +119,7 @@ const items = slides.flat();
 
     <!-- DESKTOP: 3 cards por slide -->
     <div data-carousel="services-desktop" class="hidden md:block">
-      <div class="relative min-h-[320px] md:min-h-[360px]">
+      <div class="relative min-h-80 md:min-h-[360px]">
         {
           slides.map((group, index) => (
             <div
@@ -135,7 +135,7 @@ const items = slides.flat();
                   rel="noopener noreferrer"
                   class="block"
                 >
-                  <article class="relative overflow-hidden group h-[320px] md:h-[360px]">
+                  <article class="relative overflow-hidden group h-80 md:h-80">
                     <img
                       src={item.image}
                       alt={item.title}
