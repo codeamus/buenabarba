@@ -1,46 +1,176 @@
-# Astro Starter Kit: Basics
+✂️ BUENA BARBA - Landing Page Profesional
+Sitio oficial de Barbería & Academia — Construido con Astro + Tailwind CSS
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+Este proyecto es una landing page moderna, minimalista y optimizada para la barbería Buena Barba Barbería y Academia, desarrollada con un enfoque en:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Rendimiento perfecto (PageSpeed 100)
 
-## 🚀 Project Structure
+SEO impecable
 
-Inside of your Astro project, you'll see the following folders and files:
+Animaciones suaves
 
-```text
+Experiencia premium
+
+Código limpio y escalable
+
+🚀 Tecnologías utilizadas
+
+Astro 5 — Framework ultrarrápido orientado a contenido
+
+Tailwind CSS — Estilos consistentes y escalables
+
+View Transitions — Transiciones fluidas entre páginas
+
+Imágenes WebP — Performance optimizado
+
+JavaScript mínimo — Solo donde es necesario (carousel + modal)
+
+✨ Características principales
+🏠 Landing Hero Sección
+
+Navbar con tema dinámico (claro/oscuro)
+
+Hero full-screen con blend overlay
+
+Botón de Reservar fijo estilo premium
+
+🔥 Servicios con Carrusel
+
+Modo mobile: 1 tarjeta por slide
+
+Modo desktop: 3 tarjetas por slide
+
+Efecto grayscale → color con hover
+
+Navegación con flechas
+
+Totalmente responsive
+
+🧑‍🎨 Sobre Nosotros
+
+Sección informativa
+
+Imagen decorativa
+
+Parallax opcional
+
+Componente reutilizable
+
+💈 Nuestro Equipo
+
+Cards dinámicas generadas desde un array
+
+Diseño minimalista y profesional
+
+🖼️ Galería con Lightbox
+
+Grid responsive
+
+Modal elegante con blur
+
+Imagen centrada
+
+Cierre por botón, clic o ESC
+
+📄 Página de Servicios
+
+Hero dedicado
+
+Descripción informativa
+
+Lista de precios dinámica y minimalista
+
+
+📁 Estructura del proyecto
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+│   ├── fonts/
+│   │   ├── Oswald/
+│   │   ├── Merriweather/
+│   │   └── ...
+│   └── images/
+│       ├── about/
+│       ├── carousel/
+│       ├── gallery/
+│       ├── parallax/
+│       ├── servicios/
+│       ├── background-home.webp
+│       ├── logo-dark.svg
+│       └── logo-light.svg
+│
+├── src/
+│   ├── components/
+│   │   ├── AboutSection.astro
+│   │   ├── Footer.astro
+│   │   ├── Hero.astro
+│   │   ├── MainNav.astro
+│   │   └── ServicesCarousel.astro
+│   │
+│   ├── layouts/
+│   │   └── Layout.astro
+│   │
+│   ├── pages/
+│   │   ├── index.astro
+│   │   ├── sobre-nosotros.astro
+│   │   ├── servicios.astro
+│   │   └── galeria.astro
+│   │
+│   ├── styles/
+│   │   └── global.css
+│   │
+│   └── utils/
+│       └── const.ts
+│
+├── astro.config.mjs
+├── tailwind.config.mjs
+├── package.json
+└── README.md
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+🧞 Comandos
 
-## 🧞 Commands
+| Comando        | Acción                                                                  |
+| -------------- | ----------------------------------------------------------------------- |
+| `pnpm install` | Instala dependencias                                                    |
+| `pnpm dev`     | Inicia servidor local en [http://localhost:4321](http://localhost:4321) |
+| `pnpm build`   | Genera build de producción en `/dist`                                   |
+| `pnpm preview` | Previsualiza el build localmente                                        |
+| `pnpm astro`   | Ejecuta comandos de Astro CLI                                           |
 
-All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+📦 Deploy
 
-## 👀 Want to learn more?
+El proyecto está optimizado para despliegue en:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Vercel (recomendado)
+
+Netlify
+
+Cloudflare Pages
+
+Solo conecta el repo y listo — no requiere configuración especial.
+
+🔥 Optimizado para:
+
+Performance 100
+
+SEO listo para producción
+
+Imágenes WebP
+
+Diseño responsive
+
+Uso mínimo de JS
+
+Accesibilidad (alt text, contrast, focus)
+
+✒️ Autor
+
+Alexander Urrutia (Codeamus)
+Frontend Developer — React, Astro & Interfaces de Alto Rendimiento
+📍 Santiago, Chile
+🚀 Transformando ideas en experiencias digitales reales
+
+🧔‍♂️ Créditos
+
+Este sitio fue diseñado y desarrollado para:
+Buena Barba Barbería y Academia – La Florida, Chile
