@@ -1,103 +1,98 @@
-✂️ BUENA BARBA - Landing Page Profesional
-Sitio oficial de Barbería & Academia — Construido con Astro + Tailwind CSS
+# ✂️ BUENA BARBA — Landing Page Profesional  
+### Sitio oficial de Barbería & Academia • Construido con **Astro + Tailwind CSS**
 
-Este proyecto es una landing page moderna, minimalista y optimizada para la barbería Buena Barba Barbería y Academia, desarrollada con un enfoque en:
+![banner](https://img.shields.io/badge/Astro-5.0-blueviolet?style=for-the-badge)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8?style=for-the-badge)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178c6?style=for-the-badge)
+![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Production-success?style=for-the-badge)
 
-Rendimiento perfecto (PageSpeed 100)
+---
 
-SEO impecable
+## 🌟 Descripción del Proyecto
 
-Animaciones suaves
+Landing page moderna, minimalista y optimizada para la barbería **Buena Barba Barbería y Academia**, enfocada en:
 
-Experiencia premium
+- ⚡ **Rendimiento Perfecto** (PageSpeed 100)
+- 🔍 **SEO impecable**
+- ✨ **Animaciones suaves**
+- 🎩 **Experiencia premium**
+- 📱 **Full responsive**
+- 💻 Desarrollo limpio y escalable
 
-Código limpio y escalable
+---
 
-🚀 Tecnologías utilizadas
+## 🛠️ Tecnologías Utilizadas
 
-Astro 5 — Framework ultrarrápido orientado a contenido
+- **Astro 5** — Framework ultrarrápido orientado a contenido  
+- **Tailwind CSS** — Utilidades modernas y escalables  
+- **View Transitions API** — Transiciones fluidas entre páginas  
+- **Imágenes WebP** — Alto rendimiento  
+- **JavaScript mínimo** — Solo donde es realmente necesario
 
-Tailwind CSS — Estilos consistentes y escalables
+---
 
-View Transitions — Transiciones fluidas entre páginas
+## 🧭 Características del Sitio
 
-Imágenes WebP — Performance optimizado
+### 🔝 Navbar con diseño Premium
+- Tema dinámico (claro/oscuro)
+- Botón de reserva destacado
+- Full responsive
 
-JavaScript mínimo — Solo donde es necesario (carousel + modal)
+---
 
-✨ Características principales
-🏠 Landing Hero Sección
+### 🎥 Hero con Overlay Suave
+- Imagen fullscreen 
+- Blend elegante con textos destacados
 
-Navbar con tema dinámico (claro/oscuro)
+---
 
-Hero full-screen con blend overlay
+### 💈 Servicios con Carrusel
+- Modo mobile: 1 tarjeta por slide  
+- Modo desktop: 3 tarjetas por slide  
+- Efecto hover → color + zoom suave  
+- Navegación con botones  
+- Totalmente responsive  
+- JS mínimo para mejor performance
 
-Botón de Reservar fijo estilo premium
+---
 
-🔥 Servicios con Carrusel
+### 🧔 Nuestro Equipo
+- Cards dinámicas generadas desde array  
+- Diseño editorial minimalista  
+- Biografías + imágenes optimizadas  
+- Full responsive
 
-Modo mobile: 1 tarjeta por slide
+---
 
-Modo desktop: 3 tarjetas por slide
+### 🖼️ Galería con Lightbox
+- Grid responsivo  
+- Imagen centrada con blur alrededor  
+- Cerrar con click o tecla `ESC`  
+- Efecto elegante para visualización de fotos
 
-Efecto grayscale → color con hover
+---
 
-Navegación con flechas
+### 📄 Página de Servicios
+- Lista de precios minimalista  
+- Separadores finos  
+- Tipografía elegante  
+- Estilo inspirado en barberías europeas
 
-Totalmente responsive
+---
 
-🧑‍🎨 Sobre Nosotros
+## 📁 Estructura del Proyecto
 
-Sección informativa
-
-Imagen decorativa
-
-Parallax opcional
-
-Componente reutilizable
-
-💈 Nuestro Equipo
-
-Cards dinámicas generadas desde un array
-
-Diseño minimalista y profesional
-
-🖼️ Galería con Lightbox
-
-Grid responsive
-
-Modal elegante con blur
-
-Imagen centrada
-
-Cierre por botón, clic o ESC
-
-📄 Página de Servicios
-
-Hero dedicado
-
-Descripción informativa
-
-Lista de precios dinámica y minimalista
-
-
-📁 Estructura del proyecto
+```
 /
 ├── public/
 │   ├── fonts/
-│   │   ├── Oswald/
-│   │   ├── Merriweather/
-│   │   └── ...
 │   └── images/
 │       ├── about/
 │       ├── carousel/
 │       ├── gallery/
 │       ├── parallax/
-│       ├── servicios/
-│       ├── background-home.webp
-│       ├── logo-dark.svg
-│       └── logo-light.svg
-│
+│       └── servicios/
 ├── src/
 │   ├── components/
 │   │   ├── AboutSection.astro
@@ -105,72 +100,67 @@ Lista de precios dinámica y minimalista
 │   │   ├── Hero.astro
 │   │   ├── MainNav.astro
 │   │   └── ServicesCarousel.astro
-│   │
 │   ├── layouts/
 │   │   └── Layout.astro
-│   │
 │   ├── pages/
 │   │   ├── index.astro
-│   │   ├── sobre-nosotros.astro
 │   │   ├── servicios.astro
-│   │   └── galeria.astro
-│   │
-│   ├── styles/
-│   │   └── global.css
-│   │
-│   └── utils/
-│       └── const.ts
-│
-├── astro.config.mjs
-├── tailwind.config.mjs
-├── package.json
-└── README.md
+│   │   ├── galeria.astro
+│   │   └── sobre-nosotros.astro
+│   └── styles/
+│       └── global.css
+└── utils/
+    └── const.ts
+```
 
-🧞 Comandos
+---
 
-| Comando        | Acción                                                                  |
-| -------------- | ----------------------------------------------------------------------- |
-| `pnpm install` | Instala dependencias                                                    |
-| `pnpm dev`     | Inicia servidor local en [http://localhost:4321](http://localhost:4321) |
-| `pnpm build`   | Genera build de producción en `/dist`                                   |
-| `pnpm preview` | Previsualiza el build localmente                                        |
-| `pnpm astro`   | Ejecuta comandos de Astro CLI                                           |
+## 🧞 Comandos
 
+| Comando | Acción |
+|--------|--------|
+| `pnpm install`  | Instalar dependencias |
+| `pnpm dev`      | Servidor local en **http://localhost:4321** |
+| `pnpm build`    | Generar build de producción |
+| `pnpm preview`  | Vista previa del build |
+| `pnpm astro ...` | Comandos CLI de Astro |
 
-📦 Deploy
+---
 
-El proyecto está optimizado para despliegue en:
+## 🚀 Deploy
 
-Vercel (recomendado)
+Este proyecto está optimizado para desplegarse en:
 
-Netlify
+- **Vercel** (recomendado)
+- Netlify
+- Cloudflare Pages
 
-Cloudflare Pages
+No requiere configuración adicional.
 
-Solo conecta el repo y listo — no requiere configuración especial.
+---
 
-🔥 Optimizado para:
+## 🟢 Optimizado para:
 
-Performance 100
+- Performance 100  
+- SEO  
+- Imágenes WebP  
+- Accesibilidad (alt text, contraste)  
+- Diseño moderno  
+- Uso mínimo de JS  
 
-SEO listo para producción
+---
 
-Imágenes WebP
+## 👨‍💻 Autor
 
-Diseño responsive
+**Alexander Urrutia (Codeamus)**  
+Frontend Developer — React, Astro & Interfaces de Alto Rendimiento  
+📍 *Santiago, Chile*  
 
-Uso mínimo de JS
+🌐 https://www.codeamus.dev  
+📧 contacto@codeamus.dev
 
-Accesibilidad (alt text, contrast, focus)
+> “Transformando ideas en experiencias digitales reales.”
 
-✒️ Autor
+---
 
-Alexander Urrutia (Codeamus)
-Frontend Developer — React, Astro & Interfaces de Alto Rendimiento
-📍 Santiago, Chile
-🚀 Transformando ideas en experiencias digitales reales
-
-🧔‍♂️ Créditos
-
-Este sitio fue diseñado y desarrollado para:
-Buena Barba Barbería y Academia – La Florida, Chile
+## © 2025 Buena Barba Barbería y Academia — La Florida, Chile
