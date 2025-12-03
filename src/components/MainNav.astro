@@ -20,27 +20,31 @@ const logoIconWhiteDark = "/images/logo-dark.svg"; // cambia si necesitas versi√
     <!-- INICIO (solo tablet/desktop) -->
     <a
       href="/"
-      class={`hidden sm:inline-block text-xs sm:text-lg uppercase font-oswald font-medium ${linkColor}`}
+      class={`hidden sm:inline-block text-xs sm:text-lg uppercase font-oswald font-medium ${linkColor} animate-fade-in animate-delay-400 animate-duration-500`}
     >
       ‚Ä¢ INICIO
     </a>
 
     <!-- LOGO CENTRO -->
     <div
-      class="absolute left-1/2 top-4 sm:top-6 -translate-x-1/2 flex items-center justify-center"
+      class="absolute left-1/2 top-4 sm:top-6 -translate-x-1/2 flex items-center justify-center animate-bounce-fade-in animate-delay-800 animate-duration-800"
     >
       <div
         class={`h-[3.8rem] w-[3.8rem] sm:h-[4.579rem] sm:w-[4.579rem] rounded-full ${logoBg} flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105`}
       >
         <span class="sr-only">Buenabarba</span>
-        <img src={theme === "dark" ? logoIconWhite : logoIconWhiteDark} alt="Logo Buenabarba" loading="lazy" />
+        <img
+          src={theme === "dark" ? logoIconWhite : logoIconWhiteDark}
+          alt="Logo Buenabarba"
+          loading="lazy"
+        />
       </div>
     </div>
 
     <!-- MEN√ö -->
     <a
       href="#menu"
-      class={`text-xs sm:text-lg uppercase font-oswald font-medium ${linkColor}`}
+      class={`text-xs sm:text-lg uppercase font-oswald font-medium ${linkColor} animate-fade-in animate-delay-400 animate-duration-500`}
     >
       ‚Ä¢ MENU
     </a>
@@ -55,7 +59,7 @@ const logoIconWhiteDark = "/images/logo-dark.svg"; // cambia si necesitas versi√
       flex items-center justify-center
       h-14 w-28 text-xs
       sm:h-20 sm:w-40 sm:text-xl
-      bg-[#9c8157] text-white font-oswald font-medium tracking-wide uppercase"
+      bg-[#9c8157] text-white font-oswald font-medium tracking-wide uppercase animate-fade-in animate-delay-400 animate-duration-500"
   >
     RESERVAR
   </a>
@@ -82,7 +86,11 @@ const logoIconWhiteDark = "/images/logo-dark.svg"; // cambia si necesitas versi√
           class="h-[3.8rem] w-[3.8rem] sm:h-[4.579rem] sm:w-[4.579rem] rounded-full backdrop-blur-sm flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105"
         >
           <span class="sr-only">Buenabarba</span>
-          <img src={theme === "dark" ? logoIconWhite : logoIconWhiteDark} alt="Logo Buenabarba" loading="lazy" />
+          <img
+            src={theme === "dark" ? logoIconWhite : logoIconWhiteDark}
+            alt="Logo Buenabarba"
+            loading="lazy"
+          />
         </div>
       </div>
 
