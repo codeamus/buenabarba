@@ -1,0 +1,87 @@
+---
+import Layout from "@layouts/Layout.astro";
+import MainNav from "@components/MainNav.astro";
+import Footer from "@components/Footer.astro";
+
+const heroImage = "/images/servicios/hero-servicios.webp";
+
+const description = `
+Buena Barba Barbería y Academia es una barbería inspirada en el estilo clásico europeo que dio origen 
+a este oficio, pensando en el hombre actual y sus necesidades creamos un espacio que combina lo clásico 
+con lo moderno y ofrecemos una variedad de servicios para satisfacer a los clientes más exigentes. 
+Visítanos y descubre porque nos prefieren.
+`;
+
+// Lista de precios dinámica
+const prices = [
+  { name: "Corte de Cabello", price: "$14.000" },
+  { name: "Corte Premium", price: "$18.000" },
+  { name: "Ritual de Barba", price: "$12.000" },
+  { name: "Corte de Cabello + Ritual de Barba", price: "$23.000" },
+  { name: "Tratamiento Facial", price: "$14.000" },
+  { name: "Limpieza facial", price: "$10.000" },
+  { name: "Barba Premium", price: "$16.000" },
+  { name: "Ondulado permanente + Corte", price: "$65.000" },
+];
+---
+
+<Layout title="Servicios | Buenabarba">
+  <div class="bg-[#f7f5f2] text-neutral-900 min-h-screen">
+    <MainNav theme="light" />
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+      <!-- TÍTULO PRINCIPAL -->
+      <section class="pt-10 sm:pt-12 lg:pt-16">
+        <h1
+          class="font-oswald font-black text-3xl sm:text-4xl lg:text-6xl tracking-[0.25em] uppercase text-center mb-10"
+        >
+          SERVICIOS
+        </h1>
+
+        <!-- HERO -->
+        <div class="mb-12">
+          <img
+            src={heroImage}
+            alt="Servicios de barbería Buenabarba"
+            loading="lazy"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+
+        <!-- DESCRIPCIÓN -->
+        <section class="mb-12">
+          <p
+            class="font-oswald text-sm sm:text-base lg:text-lg leading-relaxed text-neutral-700 max-w-3xl mx-auto text-center"
+          >
+            {description}
+          </p>
+        </section>
+
+        <!-- LISTA DE PRECIOS -->
+        <section class="mt-14">
+          <h2
+            class="font-oswald text-xl sm:text-2xl uppercase tracking-[0.2em] font-bold mb-6"
+          >
+            Lista de Precios
+          </h2>
+
+          <div
+            class="divide-y divide-neutral-300 border-t border-neutral-300 text-sm sm:text-base"
+          >
+            {
+              prices.map((service) => (
+                <div class="flex justify-between py-4">
+                  <span class="font-oswald">{service.name}</span>
+                  <span class="font-oswald text-neutral-700">
+                    {service.price}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+  <Footer />
+</Layout>
