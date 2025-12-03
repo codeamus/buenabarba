@@ -1,0 +1,147 @@
+---
+import Layout from "@layouts/Layout.astro";
+import MainNav from "@components/MainNav.astro";
+import Footer from "@components/Footer.astro";
+
+const description = `
+Explora algunos momentos y detalles de nuestro espacio, servicios y la experiencia 
+Buenabarba. Cada imagen refleja el compromiso, dedicación y la esencia clásica 
+que caracteriza a nuestra barbería.
+`;
+
+// Galería dinámica
+const images = [
+  { src: "/images/gallery/galeria-01.webp", alt: "Vista general del salón" },
+  { src: "/images/gallery/galeria-02.webp", alt: "Recepción de Buenabarba" },
+  { src: "/images/gallery/galeria-03.webp", alt: "Productos y decoración" },
+  { src: "/images/gallery/galeria-04.webp", alt: "Productos de barbería" },
+  { src: "/images/gallery/galeria-05.webp", alt: "Pomadas y figuras" },
+  { src: "/images/gallery/galeria-06.webp", alt: "Vista del salón" },
+  { src: "/images/gallery/galeria-07.webp", alt: "Corte de cabello" },
+  { src: "/images/gallery/galeria-08.webp", alt: "Cliente en corte" },
+];
+---
+
+<Layout title="Galería | Buenabarba">
+  <div class="bg-[#f7f5f2] text-neutral-900 min-h-screen">
+    <MainNav theme="light" />
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
+      <!-- TÍTULO -->
+      <section class="pt-10 sm:pt-12 lg:pt-16">
+        <h1
+          class="font-oswald font-black text-3xl sm:text-4xl lg:text-6xl tracking-[0.25em] uppercase text-center mb-6"
+        >
+          GALERÍA
+        </h1>
+
+        <!-- DESCRIPCIÓN -->
+        <p
+          class="font-oswald text-sm sm:text-base lg:text-lg leading-relaxed text-neutral-700 max-w-3xl mx-auto text-center mb-14"
+        >
+          {description}
+        </p>
+
+        <!-- GRID GALERÍA -->
+        <section data-gallery class="grid gap-6 sm:gap-8 md:grid-cols-2 mb-12">
+          {
+            images.map((image) => (
+              <button
+                type="button"
+                class="cursor-pointer group relative block overflow-hidden focus:outline-none"
+                data-full={image.src}
+                data-alt={image.alt}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-transform duration-500 ease-out"
+                />
+              </button>
+            ))
+          }
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL LIGHTBOX -->
+  <div
+    data-gallery-modal
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 opacity-0 pointer-events-none transition-opacity duration-300"
+    aria-hidden="true"
+  >
+    <button
+      type="button"
+      data-gallery-close
+      class="absolute inset-0"
+      aria-label="Cerrar galería"></button>
+
+    <div class="relative mx-4 sm:mx-6">
+      <!-- MODAL BOX MÁS PEQUEÑO -->
+      <div
+        class="relative bg-black/30 backdrop-blur-sm p-4 rounded-lg shadow-xl flex items-center justify-center max-w-3xl max-h-[75vh]"
+      >
+        <img
+          data-gallery-image
+          src=""
+          alt=""
+          class="max-w-3xl max-h-[75vh] object-contain rounded"
+        />
+      </div>
+
+      <!-- BOTÓN CERRAR -->
+      <button
+        type="button"
+        data-gallery-close
+        class="cursor-pointer absolute -top-10 right-0 text-white text-sm tracking-[0.2em] uppercase font-oswald"
+      >
+        Cerrar ✕
+      </button>
+    </div>
+  </div>
+
+  <script is:inline>
+    const initGallery = () => {
+      const root = document.querySelector("[data-gallery]");
+      const modal = document.querySelector("[data-gallery-modal]");
+      if (!root || !modal) return;
+
+      if (root.dataset.galleryBound === "true") return;
+      root.dataset.galleryBound = "true";
+
+      const imgEl = modal.querySelector("[data-gallery-image]");
+      const closeButtons = modal.querySelectorAll("[data-gallery-close]");
+
+      const open = (src, alt) => {
+        imgEl.src = src;
+        imgEl.alt = alt;
+        modal.classList.remove("pointer-events-none");
+        modal.classList.add("opacity-100");
+        modal.setAttribute("aria-hidden", "false");
+      };
+
+      const close = () => {
+        modal.classList.remove("opacity-100");
+        modal.classList.add("pointer-events-none");
+        modal.setAttribute("aria-hidden", "true");
+      };
+
+      root.addEventListener("click", (event) => {
+        const btn = event.target.closest("[data-full]");
+        if (!btn) return;
+        open(btn.dataset.full, btn.dataset.alt);
+      });
+
+      closeButtons.forEach((btn) => btn.addEventListener("click", close));
+      document.addEventListener(
+        "keydown",
+        (e) => e.key === "Escape" && close()
+      );
+    };
+
+    document.addEventListener("astro:page-load", initGallery);
+  </script>
+  <Footer />
+</Layout>
