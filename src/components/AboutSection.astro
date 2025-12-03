@@ -3,29 +3,52 @@ const title = "BUENA BARBA BARBERÍA Y ACADEMIA";
 
 const text =
   "Es una barbería inspirada en el estilo clásico europeo que dio origen a este oficio, pensando en el hombre actual y sus necesidades creamos un espacio que combina lo clásico con lo moderno y ofrecemos una variedad de servicios para satisfacer a los clientes más exigentes. Visítanos y descubre por qué nos prefieren.";
+
+// imagen que me mandaste recortada para banner
+const aboutImage = "/images/parallax/banner-barberia.webp";
 ---
 
 <section
   id="sobre-nosotros"
-  class="bg-[#f7f5f2] text-neutral-900 py-16 sm:py-20 lg:py-24"
+  class="relative py-16 sm:py-20 lg:py-36 text-white overflow-hidden"
 >
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+  {/* Fondo parallax */}
+  <div
+    class="absolute inset-0 bg-center bg-cover about-parallax"
+    style={`background-image: url(${aboutImage});`}
+  >
+  </div>
+  {/* Overlay para contraste */}
+  <div class="absolute inset-0 bg-black/75"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
     <div
       class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-16"
     >
-      <!-- Título -->
       <h2
-        class="font-oswald text-2xl sm:text-3xl lg:text-[2.5rem] tracking-[0.2em] uppercase text-center lg:text-left font-bold" 
+        class="font-oswald font-bold text-4xl sm:text-3xl lg:text-[2.5rem] tracking-[0.2em] uppercase text-center lg:text-left"
       >
         {title}
       </h2>
-
-      <!-- Texto -->
       <p
-        class="font-serif text-lg sm:text-base leading-relaxed text-neutral-600 max-w-xl lg:text-right font-oswald"
+        class="font-oswald text-lg sm:text-base lg:text-2xl leading-relaxed text-neutral-100 max-w-xl lg:text-right"
       >
         {text}
       </p>
     </div>
   </div>
+
+  <style is:global>
+    /* Parallax: por defecto scroll (mobile) */
+    .about-parallax {
+      background-attachment: scroll;
+    }
+
+    /* En desktop activamos parallax real */
+    @media (min-width: 768px) {
+      .about-parallax {
+        background-attachment: fixed;
+      }
+    }
+  </style>
 </section>
