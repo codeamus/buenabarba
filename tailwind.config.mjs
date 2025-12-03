@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import animations from '@midudev/tailwind-animations'
+
 export default {
   content: ["./src/**/*.{astro,html,js,ts,jsx,tsx,mdx}"],
   theme: {
@@ -8,5 +10,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [animations],
 };
