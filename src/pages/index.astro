@@ -1,4 +1,5 @@
 ---
+import AboutSection from "@components/AboutSection.astro";
 import Hero from "@components/Hero.astro";
 import ServicesCarousel from "@components/ServicesCarousel.astro";
 import Layout from "@layouts/Layout.astro";
@@ -12,4 +13,5 @@ const canonical = "https://tudominio.com/";
 <Layout {title} {description} {canonical}>
   <Hero />
   <ServicesCarousel />
+  <AboutSection />
 </Layout>
