@@ -24,7 +24,7 @@ const logoIcon = "/images/logo-light.svg"; // o el icono que quieras
       <!-- INICIO (solo desktop) -->
       <a
         href="#inicio"
-        class="hidden sm:inline-block text-xs sm:text-lg uppercase text-white font-oswald font-medium"
+        class="hidden sm:inline-block text-sm sm:text-lg uppercase text-white font-oswald font-medium"
       >
         • INICIO
       </a>
@@ -34,7 +34,7 @@ const logoIcon = "/images/logo-light.svg"; // o el icono que quieras
         class="absolute left-1/2 top-6 -translate-x-1/2 flex items-center justify-center"
       >
         <div
-          class="h-[4.579rem] w-[4.579rem] rounded-full backdrop-blur-sm flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105"
+          class="h-14 w-14 lg:h-[4.579rem] lg:w-[4.579rem] rounded-full backdrop-blur-sm flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105"
         >
           <span class="sr-only">Buenabarba</span>
           <img src={logoIcon} alt="Logo Buenabarba" loading="lazy" />
@@ -44,7 +44,7 @@ const logoIcon = "/images/logo-light.svg"; // o el icono que quieras
       <!-- MENÚ (siempre visible, mobile y desktop) -->
       <a
         href="#menu"
-        class="text-xs sm:text-lg uppercase text-white font-oswald font-medium"
+        class="text-sm sm:text-lg uppercase text-white font-oswald font-medium"
       >
         • MENU
       </a>
@@ -55,7 +55,7 @@ const logoIcon = "/images/logo-light.svg"; // o el icono que quieras
       href={RESERVE_URL}
       rel="noopener noreferrer"
       target="_blank"
-      class="fixed top-0 right-0 z-50 flex h-24 w-40 items-center justify-center bg-[#9c8157] text-xl font-medium tracking-wide uppercase text-white font-oswald"
+      class="fixed top-0 right-0 z-50 h-24 w-40 items-center justify-center bg-[#9c8157] text-xl font-medium tracking-wide uppercase text-white font-oswald hidden lg:flex"
     >
       RESERVAR
     </a>
@@ -75,7 +75,7 @@ const logoIcon = "/images/logo-light.svg"; // o el icono que quieras
         <!-- INICIO (solo desktop) -->
         <a
           href="#inicio"
-          class="hidden sm:inline-block text-xs sm:text-lg uppercase text-white font-oswald font-medium"
+          class="hidden sm:inline-block text-sm sm:text-lg uppercase text-white font-oswald font-medium"
         >
           • INICIO
         </a>
@@ -84,7 +84,7 @@ const logoIcon = "/images/logo-light.svg"; // o el icono que quieras
           class="absolute left-1/2 top-6 -translate-x-1/2 flex items-center justify-center"
         >
           <div
-            class="h-[4.579rem] w-[4.579rem] rounded-full backdrop-blur-sm flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105"
+            class="h-14 w-14 lg:h-[4.579rem] lg:w-[4.579rem] rounded-full backdrop-blur-sm flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105"
           >
             <span class="sr-only">Buenabarba</span>
             <img src={logoIcon} alt="Logo Buenabarba" loading="lazy" />
@@ -92,7 +92,7 @@ const logoIcon = "/images/logo-light.svg"; // o el icono que quieras
         </div>
 
         <!-- CERRAR MENÚ (siempre visible) -->
-        <a href="#inicio" class="text-xs sm:text-lg uppercase text-white">
+        <a href="#inicio" class="text-sm sm:text-lg uppercase text-white">
           • CERRAR MENU
         </a>
       </div>
