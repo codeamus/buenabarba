@@ -163,7 +163,7 @@ const items = slides.flat();
         <button
           type="button"
           data-dir="prev"
-          class="inline-flex items-center gap-3 text-white hover:text-black bg-white/5 hover:bg-white transition-colors px-4 py-2 rounded-full border border-white/40"
+          class="cursor-pointer inline-flex items-center gap-3 text-white hover:text-black bg-white/5 hover:bg-white transition-colors px-4 py-2 rounded-full border border-white/40"
         >
           <span
             class="flex h-8 w-8 items-center justify-center rounded-full bg-black/80 border border-white/40"
@@ -176,7 +176,7 @@ const items = slides.flat();
         <button
           type="button"
           data-dir="next"
-          class="inline-flex items-center gap-3 text-white hover:text-black bg-white/5 hover:bg-white transition-colors px-4 py-2 rounded-full border border-white/40"
+          class="cursor-pointer inline-flex items-center gap-3 text-white hover:text-black bg-white/5 hover:bg-white transition-colors px-4 py-2 rounded-full border border-white/40"
         >
           <span>Siguiente</span>
           <span
@@ -191,34 +191,47 @@ const items = slides.flat();
 
   <!-- JS mínimo para ambos carousels -->
   <script is:inline>
-    const carousels = document.querySelectorAll("[data-carousel]");
-    carousels.forEach((root) => {
-      const slides = Array.from(root.querySelectorAll("[data-slide-index]"));
-      if (!slides.length) return;
+    const initCarousels = () => {
+      const carousels = document.querySelectorAll("[data-carousel]");
 
-      let current = 0;
+      carousels.forEach((root) => {
+        // evitar enganchar varias veces al volver con view transitions
+        if (root.dataset.carouselBound === "true") return;
+        root.dataset.carouselBound = "true";
 
-      const showSlide = (nextIndex) => {
-        const total = slides.length;
-        if (nextIndex < 0) nextIndex = total - 1;
-        if (nextIndex >= total) nextIndex = 0;
+        const slides = Array.from(root.querySelectorAll("[data-slide-index]"));
+        if (!slides.length) return;
 
-        slides[current].classList.add("opacity-0", "pointer-events-none");
-        slides[current].classList.remove("opacity-100");
+        let current = 0;
 
-        slides[nextIndex].classList.remove("opacity-0", "pointer-events-none");
-        slides[nextIndex].classList.add("opacity-100");
+        const showSlide = (nextIndex) => {
+          const total = slides.length;
+          if (nextIndex < 0) nextIndex = total - 1;
+          if (nextIndex >= total) nextIndex = 0;
 
-        current = nextIndex;
-      };
+          slides[current].classList.add("opacity-0", "pointer-events-none");
+          slides[current].classList.remove("opacity-100");
 
-      root.addEventListener("click", (event) => {
-        const btn = event.target.closest("[data-dir]");
-        if (!btn) return;
-        const dir = btn.dataset.dir;
-        if (dir === "next") showSlide(current + 1);
-        if (dir === "prev") showSlide(current - 1);
+          slides[nextIndex].classList.remove(
+            "opacity-0",
+            "pointer-events-none"
+          );
+          slides[nextIndex].classList.add("opacity-100");
+
+          current = nextIndex;
+        };
+
+        root.addEventListener("click", (event) => {
+          const btn = event.target.closest("[data-dir]");
+          if (!btn) return;
+          const dir = btn.dataset.dir;
+          if (dir === "next") showSlide(current + 1);
+          if (dir === "prev") showSlide(current - 1);
+        });
       });
-    });
+    };
+
+    // para el primer load + cada vez que Astro hace swap con view transitions
+    document.addEventListener("astro:page-load", initCarousels);
   </script>
 </section>
