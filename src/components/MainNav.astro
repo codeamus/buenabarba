@@ -1,0 +1,131 @@
+---
+import { RESERVE_URL } from "@utils/const";
+
+interface Props {
+  theme?: "dark" | "light";
+}
+
+const { theme = "dark" } = Astro.props as Props;
+
+const linkColor = theme === "dark" ? "text-white" : "text-neutral-900";
+const logoBg =
+  theme === "dark" ? "backdrop-blur-sm" : "backdrop-blur-sm bg-black/5";
+
+const logoIconWhite = "/images/logo-light.svg";
+const logoIconWhiteDark = "/images/logo-dark.svg"; // cambia si necesitas versión dark
+---
+
+<header class="relative z-30 px-4 sm:px-6 py-4 sm:py-6 lg:py-12">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <!-- INICIO (solo tablet/desktop) -->
+    <a
+      href="/"
+      class={`hidden sm:inline-block text-xs sm:text-lg uppercase font-oswald font-medium ${linkColor}`}
+    >
+      • INICIO
+    </a>
+
+    <!-- LOGO CENTRO -->
+    <div
+      class="absolute left-1/2 top-4 sm:top-6 -translate-x-1/2 flex items-center justify-center"
+    >
+      <div
+        class={`h-[3.8rem] w-[3.8rem] sm:h-[4.579rem] sm:w-[4.579rem] rounded-full ${logoBg} flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105`}
+      >
+        <span class="sr-only">Buenabarba</span>
+        <img src={theme === "dark" ? logoIconWhite : logoIconWhiteDark} alt="Logo Buenabarba" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- MENÚ -->
+    <a
+      href="#menu"
+      class={`text-xs sm:text-lg uppercase font-oswald font-medium ${linkColor}`}
+    >
+      • MENU
+    </a>
+  </div>
+
+  <!-- BOTÓN RESERVAR FIJO -->
+  <a
+    href={RESERVE_URL}
+    rel="noopener noreferrer"
+    target="_blank"
+    class="fixed top-0 right-0 z-50
+      flex items-center justify-center
+      h-14 w-28 text-xs
+      sm:h-20 sm:w-40 sm:text-xl
+      bg-[#9c8157] text-white font-oswald font-medium tracking-wide uppercase"
+  >
+    RESERVAR
+  </a>
+</header>
+
+<!-- OVERLAY MENÚ (reutilizable en todas las páginas) -->
+<section
+  id="menu"
+  class="fixed inset-0 z-40 flex items-center justify-center bg-black/90 text-white opacity-0 pointer-events-none transition-opacity duration-500"
+>
+  <header class="absolute top-0 left-0 right-0 px-4 sm:px-6 py-4 sm:py-6">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a
+        href="/"
+        class="hidden sm:inline-block text-xs sm:text-lg uppercase text-white font-oswald font-medium"
+      >
+        • INICIO
+      </a>
+
+      <div
+        class="absolute left-1/2 top-4 sm:top-6 -translate-x-1/2 flex items-center justify-center"
+      >
+        <div
+          class="h-[3.8rem] w-[3.8rem] sm:h-[4.579rem] sm:w-[4.579rem] rounded-full backdrop-blur-sm flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105"
+        >
+          <span class="sr-only">Buenabarba</span>
+          <img src={theme === "dark" ? logoIconWhite : logoIconWhiteDark} alt="Logo Buenabarba" loading="lazy" />
+        </div>
+      </div>
+
+      <a
+        href="#"
+        class="text-xs sm:text-lg uppercase text-white font-oswald font-medium"
+      >
+        • CERRAR MENU
+      </a>
+    </div>
+  </header>
+
+  <nav class="text-center space-y-4 sm:space-y-5">
+    <a
+      href="/inicio"
+      class="block text-lg sm:text-2xl font-semibold tracking-[0.2em] sm:tracking-wide"
+    >
+      INICIO
+    </a>
+    <a
+      href="/sobre-nosotros"
+      class="block text-lg sm:text-2xl font-semibold tracking-[0.2em] sm:tracking-wide"
+    >
+      SOBRE NOSOTROS
+    </a>
+    <a
+      href="#servicios"
+      class="block text-lg sm:text-2xl font-semibold tracking-[0.2em] sm:tracking-wide"
+    >
+      SERVICIOS
+    </a>
+    <a
+      href="#galeria"
+      class="block text-lg sm:text-2xl font-semibold tracking-[0.2em] sm:tracking-wide"
+    >
+      GALERÍA
+    </a>
+  </nav>
+</section>
+
+<style is:global>
+  #menu:target {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>

@@ -1,0 +1,111 @@
+---
+import Layout from "@layouts/Layout.astro";
+import MainNav from "@components/MainNav.astro";
+
+const aboutHero = "/images/about/sobre-nosotros-hero.webp";
+
+// data del equipo
+const team = [
+  {
+    name: "RUBÉN",
+    image: "/images/about/ruben.webp",
+    bio: "Barbero y educador de Buena Barba, es un apasionado por la barbería, cuenta con más de 7 años de experiencia, además de cursos y certificados que avalan su profesionalismo, agenda tu hora con él.",
+  },
+  {
+    name: "ROBERT",
+    image: "/images/about/robert.webp",
+    bio: "Barbero con 8 años de experiencia en países como Venezuela, Perú y actualmente en Chile como parte del equipo de Buena Barba, detallista y cuidadoso en cada servicio para lograr los mejores resultados, agenda tu hora con él.",
+  },
+  {
+    name: "JESUS",
+    image: "/images/about/jesus.webp",
+    bio: "Nuestro barbero Jesus quien cuenta con 5 años de experiencia en barbería se caracteriza por el cuidado al detalle y el trato amable con sus clientes, atento a sus exigencias para lograr los resultados deseados, agenda tu hora con él.",
+  },
+];
+---
+
+<Layout title="Sobre nosotros | Buenabarba">
+  <!-- NAV sobre fondo claro, sin imagen fullscreen -->
+  <div class="bg-[#f7f5f2] text-neutral-900 min-h-screen">
+    <MainNav theme="light" />
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+      <!-- Título grande -->
+      <section class="pt-10 sm:pt-12 lg:pt-16">
+        <h1
+          class="font-oswald font-black text-3xl sm:text-4xl lg:text-6xl tracking-[0.25em] uppercase text-center mb-10"
+        >
+          SOBRE NOSOTROS
+        </h1>
+
+        <!-- Imagen grande -->
+        <div class="mb-12">
+          <img
+            src={aboutHero}
+            alt="Equipo de barberos trabajando en Buena Barba."
+            loading="lazy"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+
+        <!-- Bloque título + texto (el que ya tenías) -->
+        <section id="sobre-nosotros" class="py-10 lg:py-14">
+          <div
+            class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 lg:gap-16"
+          >
+            <h2
+              class="font-oswald font-bold text-2xl sm:text-3xl tracking-[0.2em] uppercase text-center lg:text-left"
+            >
+              BUENA BARBA BARBERÍA Y ACADEMIA
+            </h2>
+
+            <p
+              class="font-oswald text-sm sm:text-base lg:text-lg leading-relaxed text-neutral-700 max-w-xl lg:text-right"
+            >
+              Es una barbería inspirada en el estilo clásico europeo que dio
+              origen a este oficio, pensando en el hombre actual y sus
+              necesidades creamos un espacio que combina lo clásico con lo
+              moderno y ofrecemos una variedad de servicios para satisfacer a
+              los clientes más exigentes. Visítanos y descubre por qué nos
+              prefieren.
+            </p>
+          </div>
+        </section>
+
+        <section id="equipo" class="pt-6 lg:pt-4">
+          {/* título + línea */}
+          <div class="mb-8 border-t border-neutral-300 pt-6">
+            <h3 class="font-oswald text-xl sm:text-3xl font-semibold">
+              Nuestro Equipo
+            </h3>
+          </div>
+
+          <div class="grid gap-8 md:gap-10 md:grid-cols-2 lg:grid-cols-3">
+            {
+              team.map((member) => (
+                <article class="flex flex-col bg-white shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+                  <div class="relative overflow-hidden">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      loading="lazy"
+                      class="h-96 w-full object-cover grayscale duration-500 ease-out hover:scale-105 hover:grayscale-0"
+                    />
+                  </div>
+                  <div class="px-5 py-4 flex-1 flex flex-col gap-2">
+                    <h4 class="font-oswald font-semibold text-lg tracking-[0.2em] uppercase">
+                      {member.name}
+                    </h4>
+                    <p class="font-oswald text-xs sm:text-sm leading-relaxed text-neutral-700">
+                      {member.bio}
+                    </p>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+</Layout>
